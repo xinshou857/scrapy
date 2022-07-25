@@ -1,0 +1,14 @@
+1、将scrapy项目打包上传到服务器上面，修改scrapy.cfg 文件，取消注释url那一行
+2、scrapyd-deploy -l     启动服务，可以看到我们设置的部署名称
+3、执行打包命令： scrapyd-deploy 部署名称 -p 项目名称
+4、启动项目：
+启动之前启动scrapyd
+	curl http://localhost:6800/schedule.json -d project=项目名 -d spider=爬虫名
+
+      关闭项目：
+
+	curl http://localhost:6800/cancel.json -d project=项目名 -d job=项目的jobid
+
+       删除项目：
+
+	curl http://localhost:6800/delproject.json -d project=爬虫项目名称
